@@ -5,6 +5,7 @@
 body{
     overflow: hidden;
 }
+
 .grid-container{
     align-self: flex-start;
     display: grid;
@@ -75,4 +76,10 @@ img{
 }
 .h2j{
     background-color: aliceblue;
+}
+@media (max-width: 600px) {
+  .grid-container{
+    grid-template-columns: 100px 100px 100px;
+    gap: 3px;
+  }
 }
