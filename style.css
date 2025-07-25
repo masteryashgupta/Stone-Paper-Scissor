@@ -10,7 +10,7 @@ body{
     align-self: flex-start;
     display: grid;
     grid-template-columns: 120px 120px 120px;
-    grid-template-rows: 50px 110px 50px 50px;
+    grid-template-rows: 50px 110px 50px 50px 50px;
     gap: 20px;
 }
 .flex-container{
@@ -19,6 +19,9 @@ body{
     height: 100vh;
     width: 100%;
     justify-content: center;
+}
+.name{
+  grid-area: -2/1/-1/-1;
 }
 .top-heading{
     margin-top: 50px;
