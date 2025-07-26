@@ -10,6 +10,7 @@ function bindClick() {
     var botOutput = possibleOutputs[randomNumber];
 
     var userInput = this.className.split(" ")[0];
+    $(".inner-heading").hide();
     $(".fix img").attr("src", "./images/stone.png");
     $(".paper").html('<img src="./images/vs.png" alt="VS">');
     $(".fix img").addClass("grow-shake");
@@ -25,12 +26,14 @@ function bindClick() {
 
       $(".paper").html("<h2>" + whoWin(botOutput, userInput) + "</h2>");
       $(".paper h2").addClass("h2j");
-      $(".win").text("win : " + win);
-      $(".lose").text("lose : " + lose);
-      $(".draw").text("draw : " + draw);
+      $(".win").text("Win : " + win);
+      $(".lose").text("Lose : " + lose);
+      $(".draw").text("Draw : " + draw);
 
       // ✅ Show restart button and bind handler once
-      $(".restart").show().off("click").on("click", function () {
+      $(".restart").css("display", "inline-block").off("click").on("click", function () {
+
+        $(".inner-heading").show();
         $(".stone img").attr("src", "./images/stone.png");
         $(".scissor img").attr("src", "./images/scissor.png");
         $(".paper").html('');
@@ -42,7 +45,7 @@ function bindClick() {
         $(this).hide();
         bindClick(); // Re-enable clicks
       });
-    }, 2500);
+    }, 2000);
   });
 }
 
@@ -64,3 +67,4 @@ function whoWin(bot, user) {
   }
   return result;
 }
+

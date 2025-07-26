@@ -1,9 +1,24 @@
-*{
-    background-color: green;
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  color: #f8f9fa;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+
+
 }
-body{
-    overflow: hidden;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
 }
 
 .grid-container{
@@ -30,8 +45,17 @@ body{
     text-align: center;
 }
 .inner-heading{
-    grid-column: span 3;
+    grid-area: 1 / 1 / 2 / 4;
     text-align: center;
+}
+.stone{
+    grid-area: 2 / 1 / 3 / 2;
+}
+.paper{
+    grid-area: 2 / 2 / 3 / 3;
+}
+.scissor{
+    grid-area: 2 / 3 / 3 / 4;
 }
 p{
     text-align: center;
@@ -43,17 +67,27 @@ p{
     height: 100px;
     width: 100px;
     border-radius: 10px;
+    border: 0px ;
     margin: 0px;
     padding: 0px;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
+.items:hover {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
 img{
     width: 100%;
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     border-radius: 10px;
     padding: 0px;
     margin: 0px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+    transition: transform 0.3s ease, filter 0.3s ease;
+
 }
+
 @keyframes grow-shake {
   0%, 100% {
     transform: scale(1) translateX(0);
@@ -72,17 +106,117 @@ img{
 .grow-shake {
   animation: grow-shake 0.5s linear infinite;
 }
-.restart{
-    grid-column: span 3;
-    text-align: center;
-    display: none;
+
+.win{
+    grid-area: 3 / 1 / 4 / 2;
+}
+.lose{
+    grid-area: 3 / 2 / 4 / 3;
+}
+.draw{
+    grid-area: 3 / 3 / 4 / 4;
 }
 .h2j{
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
 }
 @media (max-width: 600px) {
   .grid-container{
     grid-template-columns: 100px 100px 100px;
     gap: 3px;
+  }
+}
+
+.wave {
+  background: rgb(255 255 255 / 25%);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% { transform: translateX(1); }
+  25% { transform: translateX(-25%); }
+  50% { transform: translateX(-50%); }
+  75% { transform: translateX(-25%); }
+  100% { transform: translateX(1); }
+}
+
+.restart{
+  grid-area: 4/ 1 / 5 / 4;
+  text-align: center;
+  display: none;
+  font-size: 1.5rem;
+  font-family: "Bitcount Grid Single", system-ui;
+  letter-spacing: 10px;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 12px;
+  /* background-color: #fff; */
+  color: #ffffff;
+  cursor: pointer;
+  animation: wave-text 2s ease-in-out infinite;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.restart:hover {
+  animation: none; /* Disable conflicting animation */
+  transform: scale(1.1);  /* ✅ Slight scale effect */
+  /* background-color: #f0f0f0; */
+  animation: text-glow 2s ease-in-out infinite;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes text-glow {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #00f0ff, 0 0 15px #00f0ff;
+    color: #fff;
+  }
+  50% {
+    text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff, 0 0 30px #00f0ff;
+    color: #00eaff;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #00f0ff, 0 0 15px #00f0ff;
+    color: #fff;
+  }
+}
+
+}
+
+@keyframes wave-text {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

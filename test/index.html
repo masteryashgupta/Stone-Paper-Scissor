@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wave-button {
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 1.2rem;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 0;
+  transition: transform 0.3s ease;
+}
+
+.wave-button:hover {
+  transform: scale(1.05);
+}
+
+.wave-button .btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.wave-button .wave {
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: rgba(142, 193, 42, 0.2); /* soft blue */
+  border-radius: 1000% 1000% 0 0;
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+  pointer-events: none;
+}
+
+.wave-button .wave1 {
+  animation: wave-in-btn 6s linear infinite;
+}
+
+.wave-button .wave2 {
+  bottom: -0.75em;
+  animation: wave-in-btn 10s linear reverse infinite;
+  opacity: 0.6;
+}
+
+.wave-button .wave3 {
+  bottom: -1.5em;
+  animation: wave-in-btn 14s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes wave-in-btn {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <button class="wave-button">
+  <span class="btn-text">Result</span>
+  <div class="wave wave1"></div>
+  <div class="wave wave2"></div>
+  <div class="wave wave3"></div>
+</button>
+
+</body>
+</html>
