@@ -5,7 +5,7 @@ var draw = 0;
 function bindClick() {
   $(".items").off("click").on("click", function () {
     // ✅ Move bot logic here
-    var audio = new Audio("./sounds/rock-paper-scissor.mp3");
+    var audio = new Audio('sounds/rock-paper-scissor.mp3');
     audio.play();
     var randomNumber = Math.floor(Math.random() * 3);
     var possibleOutputs = ["stone", "paper", "scissor"];
