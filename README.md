@@ -2,7 +2,7 @@
 
 A responsive and animated **Stone-Paper-Scissor** game built using **HTML**, **CSS**, and **JavaScript**, with a modern UI, smooth animations, and sound effects. Play against the bot and keep track of your score – Win, Lose, or Draw!
 
-🔗 **Live Demo:** [Click Here to Play](https://yashgupta271.github.io/Stone--Paper-Scissor/)
+🔗 **Live Demo:** [Click Here to Play](https://masteryashgupta.github.io/Stone-Paper-Scissor/)
 
 ---
 
@@ -74,7 +74,7 @@ Stone--Paper-Scissor/
 ## 🙋‍♂️ Author
 
 **Yash Gupta**  
-[GitHub Profile](https://github.com/yashgupta271)
+[GitHub Profile](https://github.com/masteryashgupta)
 
 ---
 
