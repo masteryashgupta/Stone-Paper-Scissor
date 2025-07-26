@@ -10,6 +10,8 @@ function bindClick() {
     var botOutput = possibleOutputs[randomNumber];
 
     var userInput = this.className.split(" ")[0];
+    var audio = new Audio("./sounds/rock-paper-scissor.mp3");
+    audio.play();
     $(".inner-heading").hide();
     $(".fix img").attr("src", "./images/stone.png");
     $(".paper").html('<img src="./images/vs.png" alt="VS">');
