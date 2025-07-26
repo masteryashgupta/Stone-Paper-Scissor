@@ -116,14 +116,14 @@ img{
 .draw{
     grid-area: 3 / 3 / 4 / 4;
 }
-.h2j{
-    /* background-color: aliceblue; */
-}
+
 @media (max-width: 600px) {
   .grid-container{
     grid-template-columns: 100px 100px 100px;
     gap: 3px;
   }
+  .items:hover {
+    box-shadow: none !important; }
 }
 
 .wave {
